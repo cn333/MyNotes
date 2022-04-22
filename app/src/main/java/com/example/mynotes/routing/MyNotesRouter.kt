@@ -11,7 +11,7 @@ sealed class Screen {
     object Trash: Screen()
 }
 
-class MyNotesRouter {
+object MyNotesRouter {
     var currentScreen: Screen by mutableStateOf(Screen.Notes)
 
     fun navigateTo(destination: Screen) {

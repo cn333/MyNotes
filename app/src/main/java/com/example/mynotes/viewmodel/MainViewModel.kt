@@ -10,6 +10,8 @@ import com.example.mynotes.database.DbMapper
 import com.example.mynotes.database.Repository
 import com.example.mynotes.domain.model.ColorModel
 import com.example.mynotes.domain.model.NoteModel
+import com.example.mynotes.routing.MyNotesRouter
+import com.example.mynotes.routing.Screen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -42,12 +44,12 @@ class MainViewModel(application: Application) : ViewModel() {
 
     fun onCreateNewNoteClick() {
         _noteEntry.value = NoteModel()
-        //MyNotesRouter.navigateTo(Screen.SaveNote)
+        MyNotesRouter.navigateTo(Screen.SaveNote)
     }
 
     fun onNoteClick(note: NoteModel) {
         _noteEntry.value = note
-        //MyNotesRouter.navigateTo(Screen.SaveNote)
+        MyNotesRouter.navigateTo(Screen.SaveNote)
     }
 
     fun onNoteCheckedChange(note: NoteModel) {
@@ -93,7 +95,7 @@ class MainViewModel(application: Application) : ViewModel() {
             repository.insertNote(note)
 
             withContext(Dispatchers.Main) {
-                //MyNotesRouter.navigateTo(Screen.Notes)
+                MyNotesRouter.navigateTo(Screen.Notes)
 
                 _noteEntry.value = NoteModel()
             }
@@ -105,7 +107,7 @@ class MainViewModel(application: Application) : ViewModel() {
             repository.moveNoteToTrash(note.id)
 
             withContext(Dispatchers.Main) {
-                //MyNotesRouter.navigateTo(Screen.Notes)
+                MyNotesRouter.navigateTo(Screen.Notes)
             }
         }
     }

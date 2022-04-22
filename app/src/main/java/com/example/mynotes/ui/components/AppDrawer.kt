@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.mynotes.routing.MyNotesRouter
 import com.example.mynotes.routing.Screen
 import com.example.mynotes.ui.theme.MyNotesTheme
 import com.example.mynotes.ui.theme.MyNotesThemeSettings
@@ -171,7 +172,7 @@ fun AppDrawer(
             label = "Notes",
             isSelected = currentScreen == Screen.Notes,
             onClick = {
-                //MyNotesRouter.navigateTo(Screen.Notes)
+                MyNotesRouter.navigateTo(Screen.Notes)
                 closeDrawerAction()
             }
         )
@@ -180,7 +181,7 @@ fun AppDrawer(
             label = "Trash",
             isSelected = currentScreen == Screen.Trash,
             onClick = {
-                //MyNotesRouter.navigateTo(Screen.Trash)
+                MyNotesRouter.navigateTo(Screen.Trash)
                 closeDrawerAction()
             }
         )
